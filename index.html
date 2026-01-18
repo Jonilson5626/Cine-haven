@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine Haven</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="layout">
+        
+        <div id="overlay" style="position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:95; display:none;"></div>
+
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">
+                <span class="material-icons">play_circle_filled</span> Cine Haven
+            </div>
+            <div id="menu-list" style="display:flex; flex-direction:column; gap:5px;">
+                </div>
+        </aside>
+
+        <main class="content">
+            
+            <header class="mobile-header">
+                <span class="material-icons hamburger" id="menu-btn">menu</span>
+                <span style="font-weight:700;">Cine Haven</span>
+                <span class="material-icons">search</span>
+            </header>
+
+            <section id="hero-slider" class="hero">
+                </section>
+
+            <div class="rotator-wrap">
+                <div class="info-box" id="rotator-inner">
+                    </div>
+            </div>
+
+            <div id="categories-container">
+                </div>
+
+            <footer class="footer">
+                <div id="footer-links" style="margin-bottom:15px;"></div>
+                <p id="footer-copy"></p>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="movies.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
