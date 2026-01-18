@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 displayList.slice(0, 9).forEach(m => {
                     cardsHTML += `
-                        <div class="movie-card" onclick="alert('Filme: ${m.title}')">
+                        <div class="movie-card" onclick="window.location.href='filme.html?id=${m.id}'">
                             <div class="poster"><img src="${m.poster}"></div>
                             <div class="movie-title">${m.title}</div>
                         </div>`;
