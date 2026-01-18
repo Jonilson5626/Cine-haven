@@ -1,40 +1,73 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cine Haven</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cine Haven</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 <body>
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="logo" id="sidebar-logo">
+        <!-- preenchido via JS -->
+      </div>
+      <nav id="menu-list">
+        <!-- menu via JS -->
+      </nav>
+      <div class="sidebar-footer">
+        <p class="sidebar-copy" id="footer-copy"></p>
+        <div class="sidebar-links" id="footer-links"></div>
+      </div>
+    </aside>
 
-    <div class="layout">
-        
-        <div id="overlay" style="position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:95; display:none;"></div>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="content">
+      <!-- HEADER MOBILE -->
+      <header class="mobile-header">
+        <div class="mobile-logo">Cine Haven</div>
+        <span class="material-icons hamburger" onclick="toggleMenu()">menu</span>
+      </header>
 
-        <aside class="sidebar" id="sidebar">
-            <div class="logo">
-                <span class="material-icons">play_circle_filled</span> Cine Haven
-            </div>
-            <div id="menu-list" style="display:flex; flex-direction:column; gap:5px;">
-                </div>
-        </aside>
+      <!-- HERO / SLIDER -->
+      <section class="hero" id="hero-slider">
+        <!-- slides via JS -->
+      </section>
 
-        <main class="content">
-            
-            <header class="mobile-header">
-                <span class="material-icons hamburger" id="menu-btn">menu</span>
-                <span style="font-weight:700;">Cine Haven</span>
-                <span class="material-icons">search</span>
-            </header>
+      <!-- ROTATOR DE INFO -->
+      <section class="rotator-wrap">
+        <div class="info-box">
+          <div id="rotator-inner">
+            <!-- itens via JS -->
+          </div>
+        </div>
+      </section>
 
-            <section id="hero-slider" class="hero">
-                </section>
+      <!-- CATEGORIAS DE FILMES -->
+      <main id="categories-container">
+        <!-- preenchido via JS -->
+      </main>
 
-            <div class="rotator-wrap">
-                <div class="info-box" id="rotator-inner">
+      <!-- RODAPÉ -->
+      <footer class="footer">
+        <p id="footer-copy-desktop"></p>
+        <div id="footer-links-desktop"></div>
+      </footer>
+    </div>
+
+    <!-- overlay para menu mobile -->
+    <div class="menu-overlay" id="menu-overlay" onclick="toggleMenu()"></div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="movies.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>                <div class="info-box" id="rotator-inner">
                     </div>
             </div>
 
