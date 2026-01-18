@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistir Filme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <a href="index.html" style="position:fixed; top:20px; left:20px; z-index:200; background:rgba(0,0,0,0.8); padding:10px 15px; border-radius:30px; display:flex; align-items:center; gap:5px; color:white;">
+            <span class="material-icons">arrow_back</span> Voltar
+        </a>
+
+        <div id="movie-backdrop" style="position:fixed; inset:0; opacity:0.3; z-index:-1; background-size:cover; background-position:center;"></div>
+
+        <main style="max-width:900px; margin:80px auto; padding:20px;">
+            <div id="movie-details" style="display:flex; flex-wrap:wrap; gap:40px; justify-content:center;">
+                <h2 style="color:white;">Carregando...</h2>
+            </div>
+        </main>
+    </div>
+
+    <script src="movies.js"></script>
+    <script>
+        // Script simples embutido para carregar os dados
+        const params = new URLSearchParams(window.location.search);
+        const id = parseInt(params.get('id'));
+        const filme = MoviesData.find(f => f.id === id);
+
+        if(filme) {
+            document.title = filme.title;
+            document.getElementById('movie-backdrop').style.backgroundImage = `url('${filme.poster}')`; // Usa poster como fundo se não tiver banner
+            if(filme.banner) document.getElementById('movie-backdrop').style.backgroundImage = `url('${filme.banner}')`;
+            
+            document.getElementById('movie-details').innerHTML = `
+                <div style="flex-shrink:0;">
+                    <img src="${filme.poster}" style="width:280px; border-radius:15px; box-shadow:0 0 30px rgba(139, 92, 246, 0.3);">
+                </div>
+                <div style="flex:1; min-width:300px;">
+                    <h1 style="font-size:3rem; line-height:1; margin-bottom:10px; font-weight:800;">${filme.title}</h1>
+                    <div style="display:flex; gap:15px; color:#aaa; margin-bottom:20px;">
+                        <span>${filme.ano}</span> • <span>${filme.genero[0]}</span> • <span style="color:#fbbf24">★ ${filme.nota}</span>
+                    </div>
+                    <p style="font-size:1.1rem; line-height:1.6; color:#ddd; margin-bottom:30px;">${filme.sinopse}</p>
+                    <button style="background:#0ea5e9; color:white; border:none; padding:15px 40px; border-radius:8px; font-size:1.1rem; font-weight:bold; cursor:pointer; display:flex; align-items:center; gap:10px; box-shadow:0 0 20px rgba(14, 165, 233, 0.4);">
+                        <span class="material-icons">play_arrow</span> Assistir Agora
+                    </button>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
