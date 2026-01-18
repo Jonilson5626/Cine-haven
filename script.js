@@ -42,13 +42,14 @@ document.addEventListener("DOMContentLoaded", () => {
         
         highlights.forEach((m, i) => {
             const activeClass = i === 0 ? 'active' : '';
+            // Botão do banner leva para o filme também
             slider.innerHTML += `
                 <div class="slide ${activeClass}" style="background-image:url('${m.banner}')">
                     <div class="slide-overlay"></div>
                     <div class="hero-content">
                         <h1 class="hero-title">${m.title}</h1>
                         <p class="hero-desc">${m.sinopse}</p>
-                        <button class="btn-hero">
+                        <button class="btn-hero" onclick="window.location.href='filme.html?id=${m.id}'">
                             <span class="material-icons">play_arrow</span> Assistir
                         </button>
                     </div>
@@ -68,19 +69,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const catsContainer = document.getElementById('categories-container');
         SiteConfig.categories.forEach(cat => {
             let movies = [];
+            // Lógica de filtro compatível com os 30 filmes
             if(cat.filter === 'ano') movies = MoviesData.filter(m => m.ano === cat.value);
-            if(cat.filter === 'nota') movies = MoviesData.filter(m => m.nota >= cat.value);
+            if(cat.filter === 'nota') movies = MoviesData.filter(m => parseFloat(m.nota) >= cat.value);
             if(cat.filter === 'genero') movies = MoviesData.filter(m => m.genero.includes(cat.value));
 
             if(movies.length > 0) {
-                // Truque para duplicar e preencher a tela se tiver poucos filmes
-                const displayList = movies.length < 3 ? [...movies, ...movies, ...movies] : movies;
+                // Truque para preencher visualmente a tela
+                const displayList = movies.length < 3 ? [...movies, ...movies] : movies;
                 let cardsHTML = "";
                 
-                displayList.slice(0, 9).forEach(m => {
+                displayList.slice(0, 12).forEach(m => {
+                    // AQUI ESTÁ O PULO DO GATO: O CLIQUE CERTO
                     cardsHTML += `
                         <div class="movie-card" onclick="window.location.href='filme.html?id=${m.id}'">
-                            <div class="poster"><img src="${m.poster}"></div>
+                            <div class="poster"><img src="${m.poster}" loading="lazy"></div>
                             <div class="movie-title">${m.title}</div>
                         </div>`;
                 });
@@ -111,58 +114,3 @@ document.addEventListener("DOMContentLoaded", () => {
         overlay.classList.toggle('active');
     }
 });
-                    </div>
-                `;
-            }
-        });
-    }
-
-    // 4. ROTATOR INFO
-    const rotatorContainer = document.getElementById('rotator-inner');
-    if(SiteConfig.rotator) {
-        SiteConfig.rotator.forEach((item, index) => {
-            const activeClass = index === 0 ? 'active' : '';
-            rotatorContainer.innerHTML += `
-                <div class="rotator-item ${activeClass}">
-                    <span class="material-icons" style="font-size:2rem; color:#8b5cf6;">${item.icon}</span>
-                    <h4>${item.title}</h4>
-                    <p style="color:#888; font-size:0.8rem; margin:0;">${item.text}</p>
-                </div>
-            `;
-        });
-
-        const items = document.querySelectorAll('.rotator-item');
-        let idx = 0;
-        setInterval(() => {
-            items[idx].classList.remove('active');
-            idx = (idx + 1) % items.length;
-            items[idx].classList.add('active');
-        }, 3000);
-    }
-
-    // 5. RODAPÉ
-    document.getElementById('footer-copy').innerText = SiteConfig.footer.copyright;
-    const footerLinks = document.getElementById('footer-links');
-    SiteConfig.footer.links.forEach(l => {
-        footerLinks.innerHTML += `<a href="${l.link}">${l.text}</a>`;
-    });
-
-    // 6. MENU MOBILE
-    const menuBtn = document.getElementById('menu-btn');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
-
-    if(menuBtn) {
-        menuBtn.addEventListener('click', () => {
-            sidebar.classList.add('open');
-            overlay.style.display = 'block';
-        });
-    }
-    if(overlay) {
-        overlay.addEventListener('click', () => {
-            sidebar.classList.remove('open');
-            overlay.style.display = 'none';
-        });
-    }
-});
-              
