@@ -1,40 +1,8 @@
-const MoviesData = [
-    // --- DESTAQUES (SLIDER) ---
-    {
-        id: 1, title: "Duna: Parte 2", ano: 2024, genero: ["Ficção", "Aventura"], nota: "8.8", destaque: true,
-        poster: "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
-        banner: "https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg",
-        sinopse: "Paul Atreides se une a Chani e aos Fremen enquanto busca vingança contra os conspiradores que destruíram sua família."
-    },
-    {
-        id: 2, title: "Godzilla e Kong: O Novo Império", ano: 2024, genero: ["Ação", "Ficção"], nota: "7.0", destaque: true,
-        poster: "https://image.tmdb.org/t/p/w500/tMefBSflR6PGQLv7WvFPpKLZkyk.jpg",
-        banner: "https://image.tmdb.org/t/p/original/z1p34vh7dEOnLDmyCrlUVLuoDzd.jpg",
-        sinopse: "Uma nova ameaça colossal espreita nas profundezas do planeta, desafiando a própria existência de Godzilla e Kong."
-    },
-    {
-        id: 3, title: "Kung Fu Panda 4", ano: 2024, genero: ["Animação", "Ação"], nota: "7.6", destaque: true,
-        poster: "https://image.tmdb.org/t/p/w500/kDp1vUBnMpe8ak4rjgl3cLELqjU.jpg",
-        banner: "https://image.tmdb.org/t/p/original/1XDDXPXGiI8id7MrUxK36ke7gkX.jpg",
-        sinopse: "Po é escolhido para se tornar o Líder Espiritual do Vale da Paz e precisa encontrar um novo Dragão Guerreiro."
-    },
-    {
-        id: 4, title: "Oppenheimer", ano: 2023, genero: ["Drama", "História"], nota: "8.1", destaque: true,
-        poster: "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
-        banner: "https://image.tmdb.org/t/p/original/rLb2cs785pePbIKYQz18IvuNPJh.jpg",
-        sinopse: "A história do físico americano J. Robert Oppenheimer e seu papel no desenvolvimento da bomba atômica."
-    },
-    {
-        id: 5, title: "Homem-Aranha: Através do Aranhaverso", ano: 2023, genero: ["Animação", "Ação"], nota: "8.4", destaque: true,
-        poster: "https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
-        banner: "https://image.tmdb.org/t/p/original/4HodYYKEIsGOdinkGi2Ucz6X9i0.jpg",
-        sinopse: "Miles Morales é catapultado através do Multiverso, onde encontra uma equipe de Pessoas-Aranha."
-    },
-
-    // --- AÇÃO E AVENTURA ---
-    {
-        id: 6, title: "Guerra Civil", ano: 2024, genero: ["Ação", "Thriller"], nota: "7.4", destaque: false,
-        poster: "https://image.tmdb.org/t/p/w500/63QG25m4721aB0b54rK69q9.jpg", banner: "",
+const movies = [
+  {id:1,title:'Oppenheimer',category:'drama',poster:'oppenheimer.jpg',rating:8.4,desc:'Drama sobre a bomba atômica.',trailer:'https://www.youtube.com/embed/VIDEO_ID',downloads:{'480p':'link.mp4','720p':'link.mp4'}},
+  {id:2,title:'Barbie',category:'animacao',poster:'barbie.jpg',rating:6.9,desc:'Aventura rosa e divertida.',trailer:'https://www.youtube.com/embed/VIDEO_ID',downloads:{'480p':'link.mp4','720p':'link.mp4'}},
+  {id:3,title:'Guardiões da Galáxia Vol.3',category:'acao',poster:'guardioes.jpg',rating:7.9,desc:'Ação espacial épica.',trailer:'https://www.youtube.com/embed/VIDEO_ID',downloads:{'480p':'link.mp4','720p':'link.mp4'}}
+];        poster: "https://image.tmdb.org/t/p/w500/63QG25m4721aB0b54rK69q9.jpg", banner: "",
         sinopse: "Uma jornada através de uma América futurista distópica, seguindo uma equipe de jornalistas militares."
     },
     {
